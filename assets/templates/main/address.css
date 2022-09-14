@@ -1,0 +1,45 @@
+{% for i in listing%}
+<div class="col-md-4 col-xs-6">
+  <div class="product">
+    <div class="product-img">
+      <img src="/media/{{i.pro_image}}" alt="" />
+      <div class="product-label">
+        <span class="sale">{{i.discount_percentage}}%</span>
+        <span class="new">NEW</span>
+      </div>
+    </div>
+    <div class="product-body">
+      <p class="product-category"></p>
+      <h3 class="product-name">
+        <a href="">{{i.pro_name}}</a>
+      </h3>
+      <h4 class="product-price">
+        {{i.pro_discount}} <del class="product-old-price">{{i.pro_prize}}</del>
+      </h4>
+      <div class="product-rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+      </div>
+      <div class="product-btns">
+        <button class="add-to-wishlist">
+          <i class="fa fa-heart-o"></i
+          ><span class="tooltipp">add to wishlist</span>
+        </button>
+        <i class="fa fa-exchange"></i>
+        <button class="quick-view">
+          <a href="/public-product-details/{{i.pro_id}}" class="fa fa-eye"></a>
+          <span class="tooltipp">quick view</span>
+        </button>
+      </div>
+    </div>
+    <div class="add-to-cart">
+      <a href="{% url 'user-login' %}"><button class="add-to-cart-btn">
+        <i class="fa fa-shopping-cart"></i> add to cart
+      </button></a>
+    </div>
+  </div>
+</div>
+{% endfor %}

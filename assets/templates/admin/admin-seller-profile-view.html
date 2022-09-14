@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Flipkart2.0-easy shopping</title>
+    <link rel="stylesheet" href="{% static 'admin/vendors/mdi/css/materialdesignicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin/vendors/flag-icon-css/css/flag-icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin/vendors/css/vendor.bundle.base.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin/css/style.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'admin/css/admin-seller-view-main.css' %}" />
+    
+    <link rel="icon" href="{% static 'img/120.png' %}" >
+  </head>
+  <body>
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+       <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+          <a class="sidebar-brand brand-logo" href="{% url 'admin-index' %}"><img style="background-color:black" src="{% static 'img/120.png' %}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="{% url 'admin-index' %}"><img src="{% static 'img/120.png' %}" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="{% static 'img/faces/face1.jpg' %}" alt="profile" />
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column pr-3">
+                <span class="font-weight-medium mb-2" style="font-size:20px;">Admin</span>
+            
+              </div>
+         
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-index' %}">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-view-main-seller' %}">
+              <i class="mdi mdi-contacts menu-icon"></i>
+              <span class="menu-title">View sellers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-View-buyers' %}">
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              <span class="menu-title">View Buyers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-view-products' %}">
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+              <span class="menu-title">View Products</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-feedback' %}">
+              <i class="mdi mdi-table-large menu-icon"></i>
+              <span class="menu-title">Buyer Feedbacks</span>
+            </a>
+          </li>
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-login' %}">
+              <i class="mdi mdi-logout menu-icon"></i>
+              <span class="menu-title">Signout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="{% url 'home' %}"><img src="{% static 'img/logo-mini.svg' %}" alt="logo" /></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+           
+            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+              <li class="nav-item dropdown d-none d-xl-flex border-0">
+                
+              </li>
+              <li class="nav-item nav-profile dropdown border-0">
+                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <img class="nav-profile-img mr-2" alt="" src="{% static 'img/faces/face1.jpg' %}" />
+                  <span class="profile-name">Admin</span>
+                </a>
+                <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+               <a class="dropdown-item" href="{% url 'home' %}">
+                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h1 class="page-title">Seller Profile</h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Seller Profile </li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body"> 
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <!-- Profile picture card-->
+                                <div class="card mb-4 mb-xl-0" style="border: 1px solid;">
+                                    <div class="card-header">Profile Picture</div>
+                                    <div class="card-body text-center">
+                                        <!-- Profile picture image-->
+                                        <img class="img-account-profile rounded-circle mb-2" src="/media/{{ profile.com_logo }}" alt="" style="width:250px;height:315px">
+                                        <!-- Profile picture help block-->
+                                        <div class="small font-bold text-muted mb-9" style="font-size: larger;"><label>Profile Picture</label></div>
+                                        <!-- Profile picture upload button-->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8">
+                                <!-- Account details card-->
+                                <div class="card mb-4"style="border: 1px solid;">
+                                    <div class="card-header">Account Details</div>
+                                    <div class="card-body">
+                                        <form>
+                                            <!-- Form Group (username)-->
+                                            <div class="mb-3">
+                                                <label class="small mb-1" >Company Name</label>
+                                                <h3 class="form-control" style="font-size:medium;font-weight:bold  ;border: 1px solid" >{{ profile.com_name }}</h3>
+                                            </div>
+                                            <!-- Form Row-->
+                                            <div class="row gx-3 mb-3">
+                                                <!-- Form Group (first name)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputFirstName" >Owner Name</label>
+                                                    <h3 class="form-control" style="font-size:medium;font-weight:bold  ; border: 1px solid;" >{{ profile.own_name }}</h3>
+                                                </div>
+                                                <!-- Form Group (last name)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputLastName" > Owner Last name</label>
+                                                    <h3 class="form-control" style="font-size:medium;font-weight:bold  ; border: 1px solid;" >{{profile.status}}</h3>
+                                                </div>
+                                            </div>
+                                            <!-- Form Row        -->
+                                            <div class="row gx-3 mb-3">
+                                                <!-- Form Group (organization name)-->
+                                                <div class="col-md-6">
+                                                  <label class="small mb-1" for="inputLastName" > Offical Email Id</label>
+                                                  <h3 class="form-control" style="font-size:medium;font-weight:bold  ;border: 1px solid;" >{{ profile.email }}</h3>
+                                              </div>
+                                                <!-- Form Group (location)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputLocation" >Location</label>
+                                                    <h3 class="form-control" style="font-size:medium;font-weight:bold;border: 1px solid;" >{{ profile.address }}</h3>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!-- Form Group (email address)-->
+                                            <div class="row gx-3 mb-3">
+                                              <!-- Form Group (phone number)-->
+                                              <div class="col-md-6">
+                                                  <label class="small mb-1" for="inputPhone">Phone number</label>
+                                                  <h3 class="form-control" style="font-size:medium;font-weight:bold  ;border: 1px solid" >{{ profile.phno }}</h3>
+                                              </div>
+                                              <div class="col-md-6">
+                                                <label class="small mb-1" for="inputPhone">Seller Id</label>
+                                                <h3 class="form-control" style="font-size:medium;font-weight:bold  ;border: 1px solid" >{{ profile.seller_id }}</h3>
+                                            </div>
+                                            </div>
+                                            
+                                            <!-- Form Row-->
+                                            
+                                            <!-- Save changes button-->
+                                            <a href="/accept_seller/{{ profile.seller_id }}" style="background-color: rgb(44, 218, 44);color: white;text-decoration: none;padding: 10px;font-size: 15px;border-radius: 5px;" >Accept</a>
+                                            <a href="/reject_seller/{{ profile.seller_id }}" style="background-color: rgb(219, 16, 16);color: white;text-decoration: none;padding: 10px;font-size: 15px;border-radius: 5px;" >Reject</a>
+                                           
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+              
+                      </div>
+                    </div>
+                </div> 
+             
+            </div>
+          </div>
+          <footer class="footer">
+             <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © codebook.in </span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.codebook.in/" target="_blank">Codebook.in</a></span>
+            </div>
+          </footer>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <script src="{% static 'admin/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+  </body>
+</html>
